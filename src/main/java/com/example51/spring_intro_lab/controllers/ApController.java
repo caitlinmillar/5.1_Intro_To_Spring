@@ -18,11 +18,16 @@ public class ApController {
     private Ap ap;
     private ArrayList<String> timeOfDay;
 
+
     @PostMapping
-    public ResponseEntity<Hello> newHello(){
-        this.ap = new Ap("Good ", this.timeOfDay);
+    public ResponseEntity<Hello> newAp(){
         this.timeOfDay = new ArrayList<>();
-        Hello hello = new Hello("Hello %s", this.timeOfDay);
+        timeOfDay.add("Morning");
+        timeOfDay.add("Afternoon");
+        timeOfDay.add("Evening");
+        this.ap = new Ap("Good ", this.timeOfDay);
+
+        Hello hello = new Hello("Hello %s", timeOfDay);
         return new ResponseEntity<>(hello, HttpStatus.CREATED);
 
     }
@@ -30,7 +35,7 @@ public class ApController {
     @GetMapping
     public ResponseEntity<Hello> getGreeting(){
         Hello hello = new Hello("Hello ", this.timeOfDay);
-                return new ResponseEntity<>(hello, HttpStatus.OK);
+        return new ResponseEntity<>(hello, HttpStatus.OK);
     }
 
 

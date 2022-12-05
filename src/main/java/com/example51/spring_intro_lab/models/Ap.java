@@ -31,4 +31,6 @@ public class Ap {
     public void setTimeOfDay(ArrayList<String> timeOfDay) {
         this.timeOfDay = timeOfDay;
     }
+
+
 }
